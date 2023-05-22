@@ -30,7 +30,7 @@ Before running the application, make sure to configure the necessary environment
 Create a .env file in the root directory of the project.
 
 Inside .env, define the required environment variables according to your needs. Here's an example or you can check the file .env.example in root directory:
-
+```
 PORT=3011
 
 SERVER_PORT=3011
@@ -50,7 +50,7 @@ USER=dperalta
 PASSWORD=123456
 
 API_TOKEN=pk_test_Yj4ns0OTLNm9XI7z
-
+```
 ## Usage
 
 To start the API server, run the following command in the project directory:
