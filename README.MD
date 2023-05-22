@@ -13,7 +13,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 1. Clone this repository to your local machine:
 
-   git clone https://github.com/your-username/tokenizercardsapi.git
+   git clone https://github.com/danilopb/tokenizercardsapi.git
 
 2. Navigate to the project directory:
 
