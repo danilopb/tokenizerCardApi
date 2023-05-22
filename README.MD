@@ -64,46 +64,51 @@ The API server will start listening on the specified port (e.g., 3011). You can 
 1. Get authorization token
 
 ### URL
+```
 POST /login
+```
 
 ### Parámetros
 username (string): El nombre de usuario del usuario que desea iniciar sesión.
 password (string): La contraseña del usuario que desea iniciar sesión.
 
 ### Example of request
-
+```
 POST /login
 
 Content-Type: multipart/form-data
 
 username=johndoe&password=secretpassword
+```
 
 ### Example of a successful response
-
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   "token": "pk_test_Yj4ns0OTLNm9XI7z",
 }
+```
 
 The response body contains an authentication token that will be used to make authenticated requests to other API endpoints.
 
 ### Example of error response
+```
 HTTP/1.1 401 Unauthorized
 Content-Type: application/json
 
 {
   "error": "Las credenciales no son correctas"
 }
-
+```
 
 2. Obtain card information by token
 
 This endpoint allows obtaining information from a card by means of its token.
 
 ### URL
-
+```
 GET /find/:token
 
 Route parameters
@@ -113,15 +118,17 @@ token (string): The token of the card.
 Headers
 
 Authorization (string): The authentication token.
+```
 
 ### Example of request
-
+```
 GET /find/abc123xyz
 
 Authorization: pk_test_Yj4ns0OTLNm9XI7z
+```
 
 ### Example of a successful response
-
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
@@ -132,14 +139,16 @@ Content-Type: application/json
   "expirationYear": "2024",
   "email": "john.doe@example.com"
 }
+```
 
 2. Generar un token para una tarjeta
 
 This endpoint allows to generate a token for a card with the data provided.
 
 ### URL
-
+```
 POST /generate-token
+```
 
 ### Headers
 
@@ -158,18 +167,20 @@ Authorization (string): The authentication token.
 - email (string): The email associated with the card.
 
 ### Example of request
-
+```
 POST /generate-token
 
 Authorization: pk_test_Yj4ns0OTLNm9XI7z
 
 card_number=1234567812345678&cvv=123&expiration_month=12&expiration_year=2024&email=john.doe@gmail.com
+```
 
 ### Example of a successful response
-
+```
 HTTP/1.1 200 OK
 Content-Type: application/json
 
 {
   "token": "abc123xyz"
 }
+```
