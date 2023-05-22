@@ -15,7 +15,7 @@ export default class CardFindByTokenController
         const token = req.params.token;
         this.cardFindByToken.execute(token)
             .then((cardEntity: CardEntity | null) => {
-
+                
                 if (!cardEntity)
                 {
                     return res.status(404).json({ message: 'No existe tarjeta asociada al token.'});

@@ -7,18 +7,20 @@ export default class CardTokenizerController
 {
     private cardCreateUniqueToken: CardCreateUniqueTokenUseCase;
     private cardStore: CardStoreUseCase;
+    private validator: CardValidator;
 
     constructor()
     {   
         this.cardCreateUniqueToken = new CardCreateUniqueTokenUseCase();
         this.cardStore = new CardStoreUseCase();
+        this.validator = new CardValidator();
+
     }
 
     __invoke(req: Request, res: Response)
     {
         let parameters =  req.body;
-        const validator = new CardValidator();
-        validator.validate(parameters);
+        this.validator.validate(parameters);
         const token = this.cardCreateUniqueToken.execute();
         parameters.token = token;
         this.cardStore.execute(parameters)

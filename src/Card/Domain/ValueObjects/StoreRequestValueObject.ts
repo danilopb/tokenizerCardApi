@@ -1,3 +1,4 @@
+import { DateHelper } from "../../../Share/Domain/Helpers/DateHelper";
 import EncryptionService from "../../../Share/Infrastructure/Services/EncryptionService";
 import CardBuilderStoreRequestBuilder from "../Builders/CardStoreRequestBuilder";
 import CardEntity from "../CardEntity";
@@ -23,11 +24,7 @@ export default class StoreRequestValueObject extends CardEntity
 
     getExpirationToken(): Date
     {
-        const currentTime = new Date().getTime();
-        const futureTime = currentTime + this.minutesToExpiredToken * 60 * 1000;
-        const futureDate = new Date();
-        futureDate.setTime(futureTime);
-        return futureDate;
+        return DateHelper.addminutes(new Date(), this.minutesToExpiredToken);
     }
 
     getEncryptNumber(): string
