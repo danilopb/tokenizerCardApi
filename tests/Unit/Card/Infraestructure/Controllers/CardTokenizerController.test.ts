@@ -45,6 +45,4 @@ describe('CardTokenizerController_class', () => {
         expect(mockResponse.status).toHaveBeenCalledWith(200);
         expect(mockResponse.json).toHaveBeenCalled();
     });
-
-
 });

@@ -55,7 +55,7 @@ API_TOKEN=pk_test_Yj4ns0OTLNm9XI7z
 
 To start the API server, run the following command in the project directory:
 ```
-npm start
+npm run dev
 ```
 The API server will start listening on the specified port (e.g., 3011). You can now make requests to the API using tools like cURL, Postman, or your preferred HTTP client.
 
